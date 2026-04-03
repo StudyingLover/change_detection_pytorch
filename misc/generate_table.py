@@ -1,3 +1,10 @@
+"""
+生成 encoder 支持表格，用于 README 文档。
+
+列出所有可用 encoder、预训练权重、参数量。
+运行方式: python misc/generate_table.py
+"""
+
 import change_detection_pytorch as smp
 
 encoders = smp.encoders.encoders

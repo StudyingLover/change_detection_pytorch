@@ -1,11 +1,8 @@
 from .custom import CustomDataset
 
 
-class LEVIR_CD_Dataset(CustomDataset):
-    """LEVIR-CD dataset
-    LEVIR-CD: https://justchenhao.github.io/LEVIR/
-    LEVIR-CD+: https://github.com/S2Looking/Dataset/tree/main/LEVIR-CD%2B/LEVIR-CD%2B
-    """
+class WHU_CD_Dataset(CustomDataset):
+    """WHU-CD dataset"""
 
     def __init__(
         self,
@@ -67,4 +64,4 @@ class LEVIR_CD_Dataset(CustomDataset):
 
 
 if __name__ == "__main__":
-    LEVIR_CD_Dataset("dir")
+    WHU_CD_Dataset("dir")

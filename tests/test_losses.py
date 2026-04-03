@@ -1,8 +1,8 @@
 import pytest
 import torch
 import change_detection_pytorch as smp
-import change_detection_pytorch.losses._functional as F
-from change_detection_pytorch.losses import (
+import change_detection_pytorch.core.losses._functional as F
+from change_detection_pytorch.core.losses import (
     DiceLoss,
     JaccardLoss,
     SoftBCEWithLogitsLoss,

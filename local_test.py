@@ -3,7 +3,7 @@ from torch.utils.data import DataLoader, Dataset
 
 import change_detection_pytorch as cdp
 from change_detection_pytorch.datasets import LEVIR_CD_Dataset, SVCD_Dataset
-from change_detection_pytorch.utils.lr_scheduler import GradualWarmupScheduler
+from change_detection_pytorch.core.utils.lr_scheduler import GradualWarmupScheduler
 
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 

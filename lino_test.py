@@ -1,5 +1,5 @@
 import torch
-from change_detection_pytorch.encoders import get_encoder
+from change_detection_pytorch.core.encoders import get_encoder
 
 if __name__ == '__main__':
     sample = torch.randn(1, 3, 256, 256)

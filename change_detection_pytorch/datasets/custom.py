@@ -153,18 +153,26 @@ class CustomDataset(Dataset):
         return self.img_infos[idx]['ann']
 
     def get_default_transform(self):
-        """Set the default transformation."""
+        """Set the default transformation. Aligned with CASP augmentation pipeline."""
 
         default_transform = A.Compose([
             A.Resize(self.size, self.size),
-            A.Normalize(),
+            A.HorizontalFlip(p=0.5),
+            A.VerticalFlip(p=0.5),
+            A.RandomRotate90(p=0.5),
+            A.Blur(blur_limit=(3, 7), p=0.5),
+            A.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.03, p=0.5),
+            A.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]),
             ToTensorV2()
-        ])
+        ], additional_targets={'image_2': 'image'})
         return default_transform
 
     def get_test_transform(self):
         """Set the test transformation."""
-        pass
+        return A.Compose([
+            A.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]),
+            ToTensorV2()
+        ], additional_targets={'image_2': 'image'})
 
     def get_image(self, img_info):
         """Open and read the image.
